@@ -24,9 +24,10 @@ def main():
 
 def getWeather(city, country):
     location = city+','+country
-    observation = owm.weather_at_place(location)
-    w = observation.get_weather()
-    return w.get_temperature('fahrenheit')
+    mgr = owm.weather_manager()
+    observation = mgr.weather_at_place(location)
+    w = observation.weather
+    return w.temperature('fahrenheit')
 
 
 @app.route('/form_input', methods=['POST'])
@@ -48,3 +49,4 @@ def form_input():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
+
