@@ -32,7 +32,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         
     - name: Test with Pytest
-      working-directory: ./src/test
+      working-directory: ./src
       run: |
         pytest
         
